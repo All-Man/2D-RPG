@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://KinematicEnemy1.gd" type="Script" id=2]
+[ext_resource path="res://enemy/amg1_lf1.png" type="Texture" id=3]
+[ext_resource path="res://enemy/amg1_lf2.png" type="Texture" id=4]
+[ext_resource path="res://enemy/amg1_rt1.png" type="Texture" id=5]
+[ext_resource path="res://enemy/amg1_rt2.png" type="Texture" id=6]
+[ext_resource path="res://enemy/amg1_bk1.png" type="Texture" id=7]
+[ext_resource path="res://enemy/amg1_bk2.png" type="Texture" id=8]
+[ext_resource path="res://enemy/amg1_fr1.png" type="Texture" id=9]
+[ext_resource path="res://enemy/amg1_fr2.png" type="Texture" id=10]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 15.6866
+height = 13.8927
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "LEFT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "RIGHT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "UP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "DOWN",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 246.873
+
+[node name="Enemy1" type="Node2D"]
+
+[node name="Enemy1" type="RigidBody2D" parent="."]
+mode = 2
+gravity_scale = 0.0
+script = ExtResource( 1 )
+
+[node name="KinematicEnemy1" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicEnemy1"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicEnemy1"]
+frames = SubResource( 2 )
+animation = "RIGHT"
+
+[node name="Body" type="Area2D" parent="KinematicEnemy1"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicEnemy1/Body"]
+position = Vector2( -0.71698, 0 )
+shape = SubResource( 3 )
+

@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="EndGameScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 1336.0
+margin_bottom = 722.0
+text = "Game ended
+"
+align = 1
+valign = 1
+

@@ -11,6 +11,8 @@ func change_map(location):
 			load_dung()
 		"Home":
 			load_home()
+		"FreeWorld":
+			load_freeworld()
 
 func load_dung():
 	var map = preload("res://levels/Dange.tscn")
@@ -19,5 +21,9 @@ func load_dung():
 	
 func load_home():
 	var map = preload("res://levels/HOME.tscn")
+	var m = map.instance()
+	$MAP.add_child(m)
+func load_freeworld():
+	var map = preload("res://levels/FreeWorld.tscn")
 	var m = map.instance()
 	$MAP.add_child(m)

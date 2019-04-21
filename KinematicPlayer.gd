@@ -27,7 +27,6 @@ func fire():
 		bul.rotation_degrees = fire_rotate
 		get_node('../').add_child(bul)
 		time = 0
-	$"../".change_map("Dung")
 
 func _physics_process(delta):
 	controls_loop()
@@ -143,3 +142,6 @@ func anim_switch(animation):
 	if $anim.current_animation != newanim:
 		$anim.play(newanim)
 		
+
+func go_to_world(worldname):
+	$"../".change_map(worldname)

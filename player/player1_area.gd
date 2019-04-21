@@ -1,14 +1,14 @@
 extends Area2D
 
 
-func _on_player1_area_area_entered(area):
-	var groups = area.get_groups()
-	print (groups[1])
-	if(groups.has("bullet")):
-		$"../".health -= 5
-	if(groups.has("Exit")):
+func _on_player1_area_area_entered(area): # Если в зоне игрока оказалась другая зона
+	var groups = area.get_groups() # Получаем группы той зоны которая в нас попала
+	if(groups.has("bullet")): # Если в том что в нас попало есть группа bullet
+		$"../".FireBallDamage() # Вызываем функцию получения урона из ноды KinematicPlayer
+	if(groups.has("Exit")): # Если в группах еть группа Exit, те. через неё мы можем перейди в другую локацию
+		# Так как местоположение групп всегда рандомное, и они записаны в массив проверяем и находим под какой цифрой Exit а под какой название мира куда надо перейти
 		if(groups[0] == "Exit"):
-			$"../".go_to_world(groups[1])
+			$"../".go_to_world(groups[1]) # Меняем мир на значение второго элемента массива т.к. в первом элементе лежит Exit
 		else:
-			$"../".go_to_world(groups[0])
+			$"../".go_to_world(groups[0]) # То же только наоборот
 	

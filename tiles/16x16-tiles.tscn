@@ -299,7 +299,6 @@ region_enabled = true
 region_rect = Rect2( 96, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprites/Sprite47"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite47/StaticBody2D"]
 position = Vector2( -4, -4 )

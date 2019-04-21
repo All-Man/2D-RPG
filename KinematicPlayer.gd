@@ -20,7 +20,7 @@ var mana = 100 # Мана
 var HealthRegenSpeed = 1 # Скорость регенерации маны
 var ManaRegenSpeed = 2 # Скорость регенерации маны
 var FireBallCost = 30 # Цена файрболла в мане
-var FireBallDamage = 5
+var FireDamage = 5
 
 var Bullet = preload('res://player/Bullet.tscn') # В переменную Bullet пдгружаем сцену Bullet.tscn
 
@@ -153,4 +153,4 @@ func go_to_world(worldname): # Функция смены мира вызывае
 	$"../".change_map(worldname)
 	
 func FireBallDamage():
-	health -= FireBallDamage
+	health -= FireDamage

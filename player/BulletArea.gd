@@ -34,12 +34,12 @@ func _on_BulletArea_area_entered(area): # Если в зону файрболл�
 	boom() # Происходит взрыв
 
 
-#func _on_BulletArea_body_entered(body):
+func _on_BulletArea_body_entered(body):
+	pass
 #	var groups = body.get_groups()
 #	if(groups.has("noheavy")):
 #		pass
 #	else:
 #		remove_from_group("bullet")
 #		boom()
-#
-	
+

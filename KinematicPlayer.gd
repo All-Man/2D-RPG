@@ -13,15 +13,18 @@ var shoot_time = 1
 var is_live = true
 
 var health = 40
+var mana = 100
 
 var Bullet = preload('res://player/Bullet.tscn')
 
 func fire():
-	var bul = Bullet.instance()
-	bul.position = position + how_fire
-	bul.rotation_degrees = fire_rotate
-	get_node('../').add_child(bul)
-	time = 0
+	if (mana > 30):
+		mana -= 30
+		var bul = Bullet.instance()
+		bul.position = position + how_fire
+		bul.rotation_degrees = fire_rotate
+		get_node('../').add_child(bul)
+		time = 0
 	$"../".change_map("Dung")
 
 func _physics_process(delta):
@@ -30,10 +33,14 @@ func _physics_process(delta):
 	spritedir_loop()
 	
 	time += delta
+	if (mana != 100):
+		mana += delta * 2 #Регенерация маны
+	if (health != 100):
+		health += delta #Регенерация жизней
 	if (time > shoot_time):
 		time = 5
 	
-	$"../"/Bars/Player_bars/player1_mana_bar.set_value(time)
+	$"../"/Bars/Player_bars/player1_mana_bar.set_value(mana)
 	$"../"/Bars/Player_bars/player1_health_bar.set_value(health)
 	
 	if (health == 0):

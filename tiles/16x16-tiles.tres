@@ -508,7 +508,25 @@ extents = Vector2( 8, 8 )
 47/tile_mode = 0
 47/occluder_offset = Vector2( 8, 8 )
 47/navigation_offset = Vector2( 8, 8 )
-47/shapes = [  ]
+47/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 0.5, 0, 0, 0.5, 4, 4 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 0.5, 0, 0, 0.5, 4, 12 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 0.5, 0, 0, 0.5, 12, 4 )
+} ]
 47/z_index = 0
 48/name = "Sprite49"
 48/texture = ExtResource( 1 )

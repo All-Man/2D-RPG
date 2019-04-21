@@ -324,6 +324,23 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 80, 16, 16 )
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sprites/Sprite48"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite48/StaticBody2D3"]
+position = Vector2( -4, -4 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprites/Sprite48/StaticBody2D3"]
+position = Vector2( 4, -4 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite48/StaticBody2D3"]
+position = Vector2( -4, 4 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
 [node name="Sprite49" type="Sprite" parent="Sprites"]
 position = Vector2( 176, 80 )
 texture = ExtResource( 1 )
@@ -712,6 +729,4 @@ position = Vector2( 80, 80 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 80, 144, 16, 16 )
-
-[node name="PhysicBoxes" type="Node2D" parent="."]
 

@@ -11,6 +11,8 @@ var fire_rotate = 0
 var time = 5
 var shoot_time = 1
 var is_live = true
+var is_moving = false
+
 
 var health = 40
 var mana = 100
@@ -31,11 +33,12 @@ func _physics_process(delta):
 	controls_loop()
 	movement_loop()
 	spritedir_loop()
+	fire_loop()
 	
 	time += delta
 	if (mana != 100):
 		mana += delta * 2 #Регенерация маны
-	if (health != 100):
+	if (health != 100 && is_moving == false):
 		health += delta #Регенерация жизней
 	if (time > shoot_time):
 		time = 5
@@ -52,7 +55,7 @@ func _physics_process(delta):
 	if (time > 1.4 and is_live == false):
 		get_tree().paused = true
 	
-	#if is_on_wall():
+func fire_loop():
 	if (Input.is_action_pressed("ui_fire")):
 		
 		if spritedir == "left":# and test_move(transform, Vector2(-1,0)):
@@ -106,6 +109,11 @@ func controls_loop():
 	var RIGHT	= Input.is_action_pressed("ui_right")
 	var UP		= Input.is_action_pressed("ui_up")
 	var DOWN	= Input.is_action_pressed("ui_down")
+	
+	if (LEFT || RIGHT || UP || DOWN):
+		is_moving = true
+	else:
+		is_moving = false
 	
 	if (can_fire == false):
 		movedir.x = 0

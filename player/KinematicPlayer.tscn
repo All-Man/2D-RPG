@@ -252,3 +252,4 @@ script = ExtResource( 3 )
 shape = SubResource( 13 )
 
 [connection signal="area_entered" from="player1_area" to="player1_area" method="_on_player1_area_area_entered"]
+[connection signal="area_exited" from="player1_area" to="player1_area" method="_on_player1_area_area_exited"]

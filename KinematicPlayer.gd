@@ -18,7 +18,7 @@ var health = 40 # ХП
 var mana = 100 # Мана
 
 var HealthRegenSpeed = 1 # Скорость регенерации маны
-var ManaRegenSpeed = 2 # Скорость регенерации маны
+var ManaRegenSpeed = 10 # Скорость регенерации маны
 var FireBallCost = 30 # Цена файрболла в мане
 var FireDamage = 5
 
@@ -58,7 +58,12 @@ func _physics_process(delta): # Функция выполняется всегд
 	
 	if (time > 1.4 and is_live == false): # Если лейбл провисел на экране больше 1.4 секунды
 		get_tree().paused = true # Останвливаем всю игру
-	
+
+
+
+
+
+
 func fire_loop():
 	if (Input.is_action_pressed("ui_fire")): # Если нажата клавиша ui_fire сейчас это шифт
 		
@@ -112,8 +117,6 @@ func fire_loop():
 		can_go = true # Он может идти
 		can_fire = true # Может стрелять
 		is_moving = false # Запоминаем что перс стоит
-	
-
 func controls_loop():
 	# Переменные ранящие в себе значения клавиш, true - нажата, false - не нажата
 	var LEFT	= Input.is_action_pressed("ui_left") 
@@ -127,11 +130,9 @@ func controls_loop():
 	if (can_go == true): # Если перс может идти
 		movedir.x = -int(LEFT) + int(RIGHT) # Устанавливаем куда идёт перс по x
 		movedir.y = -int(UP) + int(DOWN) # Устанавливаем куда идёт перс по y
-
 func movement_loop():
 	var motion = movedir.normalized() * SPEED # normalized - усредняем движение перса, можно убрать, но ходить он будет не очень
 	move_and_slide(motion, Vector2(0,0)) # Перемещаемся
-
 func spritedir_loop(): # Функция устанавливает то куда смотрит перс
 	match movedir:
 		Vector2(-1,0):
@@ -142,15 +143,17 @@ func spritedir_loop(): # Функция устанавливает то куда
 			spritedir = "up"
 		Vector2(0,1):
 			spritedir = "down"
-
 func anim_switch(animation): # Функция смены анимации, что бы укоротить код
 	var newanim = str(animation, spritedir)
 	if $anim.current_animation != newanim:
 		$anim.play(newanim)
-		
-
 func go_to_world(worldname): # Функция смены мира вызывается из ноды на уровень выше
 	$"../".change_map(worldname)
-	
 func FireBallDamage():
 	health -= FireDamage
+func use_hint(what):
+	match what:
+		"Hide":
+			$"../"/Bars/Hints/Use.hide()
+		"Show":
+			$"../"/Bars/Hints/Use.show()

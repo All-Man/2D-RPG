@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles/gfx/tiny-16.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -526,14 +529,7 @@ region_rect = Rect2( 112, 112, 16, 16 )
 [node name="StaticBody2D2" type="StaticBody2D" parent="Sprites/Sprite79"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite79/StaticBody2D2"]
-position = Vector2( -4, -4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite79/StaticBody2D2"]
-position = Vector2( -4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Sprite80" type="Sprite" parent="Sprites"]
 position = Vector2( 80, 112 )
@@ -541,8 +537,12 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 112, 16, 16 )
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Sprites/Sprite80"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprites/Sprite80/StaticBody2D2"]
+shape = SubResource( 3 )
+
 [node name="Sprite81" type="Sprite" parent="Sprites"]
-editor/display_folded = true
 position = Vector2( 96, 112 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -550,85 +550,41 @@ region_rect = Rect2( 144, 112, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprites/Sprite81"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite81/StaticBody2D"]
-position = Vector2( 4, -4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite81/StaticBody2D"]
-position = Vector2( 4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprites/Sprite81/StaticBody2D"]
+shape = SubResource( 3 )
 
 [node name="Sprite82" type="Sprite" parent="Sprites"]
-editor/display_folded = true
 position = Vector2( 64, 128 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 112, 128, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprites/Sprite82"]
-editor/display_folded = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite82/StaticBody2D"]
-position = Vector2( -4, -4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprites/Sprite82/StaticBody2D"]
-position = Vector2( -4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite82/StaticBody2D"]
-position = Vector2( 4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Sprite83" type="Sprite" parent="Sprites"]
-editor/display_folded = true
 position = Vector2( 80, 128 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 128, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprites/Sprite83"]
-editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite83/StaticBody2D"]
-position = Vector2( -4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite83/StaticBody2D"]
-position = Vector2( 4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Sprites/Sprite83/StaticBody2D"]
+shape = SubResource( 3 )
 
 [node name="Sprite84" type="Sprite" parent="Sprites"]
-editor/display_folded = true
 position = Vector2( 96, 128 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 144, 128, 16, 16 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Sprites/Sprite84"]
-editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprites/Sprite84/StaticBody2D2"]
-position = Vector2( 4, -4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprites/Sprite84/StaticBody2D2"]
-position = Vector2( -4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Sprites/Sprite84/StaticBody2D2"]
-position = Vector2( 4, 4 )
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprites/Sprite84/StaticBody2D2"]
+shape = SubResource( 3 )
 
 [node name="Sprite85" type="Sprite" parent="Sprites"]
 position = Vector2( 32, 64 )
@@ -701,6 +657,11 @@ position = Vector2( 96, 64 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 128, 144, 16, 16 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Sprites/Sprite96"]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Sprites/Sprite96/StaticBody2D3"]
+shape = SubResource( 3 )
 
 [node name="Sprite97" type="Sprite" parent="Sprites"]
 position = Vector2( 96, 80 )

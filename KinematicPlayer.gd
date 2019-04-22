@@ -43,10 +43,14 @@ func _physics_process(delta): # Функция выполняется всегд
 	fire_loop() # То же
 	
 	time += delta # Счётчик временеи
-	if (mana != 100): # Если кол-во маны не 100, то
+	if (mana < 100): # Если кол-во маны не 100, то
 		mana += delta * ManaRegenSpeed #Регенерация маны
-	if (health != 100 && is_moving == false):  # Если кол-во маны не 100 и перс не движется, то
+		if (mana > 100):
+			mana = 100
+	if (health < 100 && is_moving == false):  # Если кол-во маны не 100 и перс не движется, то
 		health += delta * HealthRegenSpeed #Регенерация жизней
+		if(health > 100):
+			health = 100
 	if (time > shoot_time): # Не помню зачем делал, пока работает не надо трогать. Это связано с выстрелом файрболла
 		time = 5
 	

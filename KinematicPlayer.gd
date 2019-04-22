@@ -18,10 +18,13 @@ var CurrentMap = "Home"
 var health = 40 # ХП
 var mana = 100 # Мана
 
+var manaMAX = 100
+var healthMAX = 100
+
 var HealthRegenSpeed = 1 # Скорость регенерации маны
 var ManaRegenSpeed = 10 # Скорость регенерации маны
 var FireBallCost = 30 # Цена файрболла в мане
-var FireDamage = 5
+var FireDamage = 5 # Урон персу от файрболла
 
 var Bullet = preload('res://player/Bullet.tscn') # В переменную Bullet пдгружаем сцену Bullet.tscn
 
@@ -43,14 +46,14 @@ func _physics_process(delta): # Функция выполняется всегд
 	fire_loop() # То же
 	
 	time += delta # Счётчик временеи
-	if (mana < 100): # Если кол-во маны не 100, то
+	if (mana < manaMAX): # Если кол-во маны не 100, то
 		mana += delta * ManaRegenSpeed #Регенерация маны
-		if (mana > 100):
-			mana = 100
-	if (health < 100 && is_moving == false):  # Если кол-во маны не 100 и перс не движется, то
+		if (mana > manaMAX):
+			mana = manaMAX
+	if (health < healthMAX && is_moving == false):  # Если кол-во маны не 100 и перс не движется, то
 		health += delta * HealthRegenSpeed #Регенерация жизней
-		if(health > 100):
-			health = 100
+		if(health > healthMAX):
+			health = healthMAX
 	if (time > shoot_time): # Не помню зачем делал, пока работает не надо трогать. Это связано с выстрелом файрболла
 		time = 5
 	

@@ -28,17 +28,16 @@ func _on_BulletArea_area_entered(area): # Если в зону файрболл�
 	var groups = area.get_groups() # Смотрим какие группы зоны попали в патрону
 	if(groups.has("bullet_bullet")): # Если есть группа bullet_bullet
 		remove_from_group("bullet") # Удаляем у себя группу bullet
-	if(groups.has("Exit") || groups.has("noheavy")): # Если в зоне есть группы Exit или noheavy, то взрыв не происходит
-		pass
-	else: # Если их нет то взрыв происходит
+	if(!(groups.has("Exit") || groups.has("noheavy"))): # Если в зоне есть группы Exit или noheavy, то взрыв не происходит
 		boom() # Происходит взрыв
+
 
 
 func _on_BulletArea_body_entered(body):
 	var groups = body.get_groups()
-	#if(groups.has("noheavy")):
-	#	pass
-	#else:
-	remove_from_group("bullet")
-	boom()
+	
+	if(!(groups.has("noheavy"))):
+		remove_from_group("bullet")
+		boom()
+
 

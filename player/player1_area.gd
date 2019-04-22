@@ -22,5 +22,7 @@ func _on_player1_area_area_entered(area): # Если в зоне игрока о
 	
 
 func _on_player1_area_area_exited(area):
-	CanExit = false
-	$"../".use_hint("Hide")
+	var groups = area.get_groups()
+	if(groups.has("Exit")): # Если в группах еть группа Exit, те. через неё мы можем перейди в другую локацию
+		CanExit = false
+		$"../".use_hint("Hide") # Скрыть подсказку нажатия клавишы "E"

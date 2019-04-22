@@ -13,6 +13,7 @@ var shoot_time = 1
 var is_live = true
 var is_moving = false
 
+var CurrentMap = "Home"
 
 var health = 40 # ХП
 var mana = 100 # Мана
@@ -150,7 +151,8 @@ func anim_switch(animation): # Функция смены анимации, чт�
 	if $anim.current_animation != newanim:
 		$anim.play(newanim)
 func go_to_world(worldname): # Функция смены мира вызывается из ноды на уровень выше
-	$"../".change_map(worldname)
+	$"../".change_map(worldname, CurrentMap, worldname)
+	CurrentMap = worldname
 func FireBallDamage():
 	health -= FireDamage
 func use_hint(what):

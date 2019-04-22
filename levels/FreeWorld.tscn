@@ -18,8 +18,9 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 "Exit",
 "Home",
 ]]
+position = Vector2( 269, 235 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomeEnterArea"]
-position = Vector2( 269.253, 223.067 )
+position = Vector2( 0.252991, -11.933 )
 shape = SubResource( 1 )
 

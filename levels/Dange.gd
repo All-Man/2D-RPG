@@ -1,6 +1,6 @@
 # Пока пустой скрипт, можно не обращать внимание
-extends Node2D
+#extends Node2D
 
-func _ready():
-	pass
+#func _ready():
+#	pass
 

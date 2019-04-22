@@ -24,6 +24,8 @@ var FireDamage = 5
 
 var Bullet = preload('res://player/Bullet.tscn') # В переменную Bullet пдгружаем сцену Bullet.tscn
 
+
+
 func fire(): # Функция выстрела файрболлом
 	if (mana > 30): # Тут и так всё ясно
 		mana -= FireBallCost # Тут тоже, просто убираем цену выстрела

@@ -18,9 +18,9 @@ tile_data = PoolIntArray( 0, 1073741905, 0, 1, 1073741906, 0, 2, 1073741906, 0, 
 "Exit",
 "FreeWorld",
 ]]
-position = Vector2( 665.33, 705.802 )
+position = Vector2( 665.33, 667.802 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
-position = Vector2( 0, -22.2137 )
+position = Vector2( 0, 15.7863 )
 shape = SubResource( 1 )
 

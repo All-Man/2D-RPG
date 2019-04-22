@@ -1,6 +1,8 @@
 extends Node2D
 
-func _ready(): # Функция которая исполняется только один раз при запуске
+var ExitPointsDict = {"Home":"MAP/HOME/ExitArea"}
+
+func _ready():
 	load_home()
 
 # Функция выбора карты для смены
@@ -19,11 +21,11 @@ func load_dung(): # Функция смены карты на Dange
 	var map = preload("res://levels/Dange.tscn")
 	var m = map.instance()
 	$MAP.add_child(m)
-	
 func load_home():
 	var map = preload("res://levels/HOME.tscn")
 	var m = map.instance()
 	$MAP.add_child(m)
+	$KinematicPlayer.position = get_node(ExitPointsDict['Home']).position
 func load_freeworld():
 	var map = preload("res://levels/FreeWorld.tscn")
 	var m = map.instance()

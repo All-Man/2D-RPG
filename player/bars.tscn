@@ -11,17 +11,16 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Player_bars" type="Control" parent="."]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="player1_health_bar" type="TextureProgress" parent="Player_bars"]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 1121.0
-margin_top = 636.0
-margin_right = 1289.0
-margin_bottom = 647.0
+margin_left = 1121.31
+margin_top = 636.307
+margin_right = 1289.31
+margin_bottom = 647.307
 step = 0.005
 value = 30.0
 texture_under = ExtResource( 1 )

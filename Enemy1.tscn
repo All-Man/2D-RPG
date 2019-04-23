@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://KinematicEnemy1.gd" type="Script" id=1]
 [ext_resource path="res://enemy/amg1_lf1.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://enemy/amg1_fr1.png" type="Texture" id=8]
 [ext_resource path="res://enemy/amg1_fr2.png" type="Texture" id=9]
 [ext_resource path="res://Enemy/KnightBody.gd" type="Script" id=10]
+[ext_resource path="res://images/pixel_under_health.png" type="Texture" id=11]
+[ext_resource path="res://images/health_bar.png" type="Texture" id=12]
+[ext_resource path="res://images/pixel_health.png" type="Texture" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.6866
@@ -41,9 +44,13 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=3]
 radius = 148.282
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 23.0975
+
 [node name="Enemy1" type="Node2D"]
 
 [node name="KinematicEnemy1" type="KinematicBody2D" parent="."]
+scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicEnemy1"]
@@ -56,11 +63,33 @@ animation = "RIGHT"
 [node name="Body" type="Area2D" parent="KinematicEnemy1" groups=[
 "noheavy",
 ]]
+editor/display_folded = true
+visible = false
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicEnemy1/Body"]
 position = Vector2( -0.71698, 0 )
 shape = SubResource( 3 )
 
+[node name="HitZone" type="Area2D" parent="KinematicEnemy1"]
+editor/display_folded = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicEnemy1/HitZone"]
+shape = SubResource( 4 )
+
+[node name="HealthBar" type="TextureProgress" parent="KinematicEnemy1"]
+margin_left = -12.7624
+margin_top = -21.5248
+margin_right = 11.2376
+margin_bottom = -18.5248
+value = 20.0
+texture_under = ExtResource( 11 )
+texture_over = ExtResource( 12 )
+texture_progress = ExtResource( 13 )
+fill_mode = 1
+nine_patch_stretch = true
+
 [connection signal="area_entered" from="KinematicEnemy1/Body" to="KinematicEnemy1/Body" method="_on_Body_area_entered"]
 [connection signal="area_exited" from="KinematicEnemy1/Body" to="KinematicEnemy1/Body" method="_on_Body_area_exited"]
+[connection signal="area_entered" from="KinematicEnemy1/HitZone" to="KinematicEnemy1" method="_on_HitZone_area_entered"]

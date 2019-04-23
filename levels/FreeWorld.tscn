@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tiles/16x16-tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Enemy1.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.1977, 4.73711 )
@@ -23,4 +24,7 @@ position = Vector2( 269, 238 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomeEnter"]
 position = Vector2( 0.252991, -14.933 )
 shape = SubResource( 1 )
+
+[node name="Enemy1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 870.453, 419.867 )
 

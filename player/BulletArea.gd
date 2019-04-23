@@ -35,7 +35,6 @@ func _on_BulletArea_area_entered(area): # Если в зону файрболл�
 
 func _on_BulletArea_body_entered(body):
 	var groups = body.get_groups()
-	
 	if(!(groups.has("noheavy"))):
 		remove_from_group("bullet")
 		boom()

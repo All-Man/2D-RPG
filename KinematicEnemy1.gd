@@ -1,18 +1,21 @@
 extends KinematicBody2D
 
-
-var SPEED = 150
-
-
+var IsPlayerNear = false
+var SPEED = 120
+var PlayerPos = Vector2(0,0)
 
 func _physics_process(delta):
+	if(IsPlayerNear == true):
+		PlayerPos.x = $"../../../../KinematicPlayer".global_position.x - self.global_position.x
+		PlayerPos.y = $"../../../../KinematicPlayer".global_position.y - self.global_position.y
+		var motion = PlayerPos.normalized() * SPEED
+		move_and_slide(motion, Vector2(0,0))
 
-	var MOVE = Vector2()
-	var body = get_node("Body").get_overlapping_bodies()
+
+
+
+func attack():
+	IsPlayerNear = true
 	
-	if(body.size() != 0):
-		for tinge in body:
-			if(tinge.is_in_group("player")):
-				print('kek')
-				#if(tinge.global_position().x < self.global_position().x):
-				#	print('good')
+func stop_attack():
+	IsPlayerNear = false

@@ -4,7 +4,7 @@ var NextWorld
 var CanExit = false
 
 func _physics_process(delta):
-	if (CanExit && Input.is_action_pressed("ui_use")):
+	if (CanExit && Input.is_action_pressed("ui_use")): # Ели нажат ui_use т.е. кнопка Е
 		$"../".go_to_world(NextWorld)
 
 func _on_player1_area_area_entered(area): # Если в зоне игрока оказалась другая зона

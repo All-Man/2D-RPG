@@ -1,7 +1,6 @@
 extends Node2D
 
-var ExitPointsDict = {"HomeExit":"MAP/Home/HomeExit", "HomeEnter":"MAP/FreeWorld/HomeEnter"}
-#	$KinematicPlayer.position = get_node(ExitPointsDict['Home']).position
+var ExitPointsDict = {"HomeExit":"MAP/Home/HomeExit", "HomeEnter":"MAP/FreeWorld/HomeEnter"} # Этот тип данных назывется словарь, например значение 'MAP/Home/HomeExit' можно получит через ExitPointsDict["HomeExit"]
 func _ready():
 	load_home()
 
@@ -21,7 +20,7 @@ func change_map(location, FromMap, ToMap):
 func change_pos(FromMap, ToMap):
 	print("Отладка: Переход из ", FromMap, " в ", ToMap)
 	if(FromMap == "FreeWorld"):
-		$KinematicPlayer.position = get_node(ExitPointsDict[ToMap + "Exit"]).position
+		$KinematicPlayer.position = get_node(ExitPointsDict[ToMap + "Exit"]).position # get_node - аналогично знаку $
 	elif(FromMap == "Home" || FromMap == "Dung"):
 		$KinematicPlayer.position = get_node(ExitPointsDict[FromMap + "Enter"]).position
 

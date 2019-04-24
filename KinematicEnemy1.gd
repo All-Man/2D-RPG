@@ -20,9 +20,44 @@ func _physics_process(delta):
 
 
 
+
+func rotation_loop(): # Супер сложная математическая функция
+	if(PlayerPos.x < 0 && PlayerPos.y < 0): # 1 ая четверть окружности
+		if(abs(PlayerPos.y) < abs(PlayerPos.x)):# нижняя половина четверти
+			$AnimatedSprite.play("LEFT") # Начать проигрывать анимацию
+		elif(abs(PlayerPos.y) > abs(PlayerPos.x)):# верхняя половина четверти
+			$AnimatedSprite.play("UP")
+		else:
+			$AnimatedSprite.stop()
+	elif(PlayerPos.x > 0 && PlayerPos.y < 0): # 2 ая четверть четверти
+		if(abs(PlayerPos.y) < abs(PlayerPos.x)):# нижняя половина четверти
+			$AnimatedSprite.play("RIGHT")
+		elif(abs(PlayerPos.y) > abs(PlayerPos.x)):# верхняя половина четверти
+			$AnimatedSprite.play("UP")
+		else:
+			$AnimatedSprite.stop()
+	elif(PlayerPos.x > 0 && PlayerPos.y > 0): # 3 ая четверть четверти
+		if(abs(PlayerPos.y) < abs(PlayerPos.x)):# верхняя половина четверти
+			$AnimatedSprite.play("RIGHT")
+		elif(abs(PlayerPos.y) > abs(PlayerPos.x)):# нижняя половина четверти
+			$AnimatedSprite.play("DOWN")
+		else:
+			$AnimatedSprite.stop()
+	elif(PlayerPos.x < 0 && PlayerPos.y > 0): # 4 ая четверть четверти
+		if(abs(PlayerPos.y) > abs(PlayerPos.x)):# нижняя половина четверти
+			$AnimatedSprite.play("DOWN")
+		elif(abs(PlayerPos.y) < abs(PlayerPos.x)):# верхняя половина четверти
+			$AnimatedSprite.play("LEFT")
+		else:
+			$AnimatedSprite.stop() # Перестать проигрывать анимацию
+	else:
+		$AnimatedSprite.stop()
+
+
 func attack():
 	IsPlayerNear = true
 func stop_attack():
+	$AnimatedSprite.stop()
 	IsPlayerNear = false
 
 func _on_HitZone_area_entered(area): # Функция будущей атаки, необходимо дописать

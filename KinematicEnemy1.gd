@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 var IsPlayerNear = false
-var SPEED = 120
-var health = 100
+var SPEED = 140
+var health = 150
 var PlayerPos = Vector2(0,0)
 
 func _physics_process(delta):
@@ -64,5 +64,9 @@ func _on_HitZone_area_entered(area): # Функция будущей атаки,
 	var groups = area.get_groups()
 	if (groups.has("player")):
 		print("EEEEBOYYY")
+
+func _on_Area2D_area_entered(area):
+	var groups = area.get_groups()
+	print("AI")
 	if (groups.has("bullet")):
 		health -= 10

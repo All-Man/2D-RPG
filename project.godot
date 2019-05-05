@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Fabenial_RPG"
-run/main_scene="res://Level1.tscn"
+run/main_scene="res://scenes/boot.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Bars="*res://player/bars.tscn"
+GLOBAL="*res://scenes/GLOBAL.tscn"
 
 [display]
 

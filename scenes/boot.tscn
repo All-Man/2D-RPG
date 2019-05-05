@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/boot.gd" type="Script" id=1]
+[ext_resource path="res://images/boot/boot_mask.png" type="Texture" id=2]
+[ext_resource path="res://images/boot/logo.png" type="Texture" id=3]
+[ext_resource path="res://images/boot/text.png" type="Texture" id=4]
+
+[node name="boot" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Back" type="ColorRect" parent="."]
+margin_right = 1330.0
+margin_bottom = 720.0
+color = Color( 0.964706, 0.933333, 0.729412, 1 )
+
+[node name="mask" type="Light2D" parent="."]
+position = Vector2( 0, 720 )
+scale = Vector2( 8.86667, 2.4 )
+texture = ExtResource( 2 )
+offset = Vector2( 75, -150 )
+color = Color( 0.964706, 0.933333, 0.729412, 0.145098 )
+energy = 0.81
+mode = 1
+
+[node name="logo" type="Sprite" parent="."]
+position = Vector2( 680, 290 )
+texture = ExtResource( 3 )
+
+[node name="tween" type="Tween" parent="."]
+
+[node name="fabenial" type="Sprite" parent="."]
+position = Vector2( 670, 450 )
+texture = ExtResource( 4 )
+

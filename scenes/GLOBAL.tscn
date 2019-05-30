@@ -12,8 +12,4 @@ margin_right = 1330.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 1 )
 
-<<<<<<< HEAD
 [node name="tween" type="Tween" parent="."]
-=======
-[node name="Tween" type="Tween" parent="."]
->>>>>>> master

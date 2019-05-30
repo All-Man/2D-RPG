@@ -49,7 +49,6 @@ ui_use={
 
 [rendering]
 
-quality/driver/fallback_to_gles2=true
 quality/intended_usage/framebuffer_allocation.mobile=0
 quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

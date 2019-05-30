@@ -20,4 +20,4 @@ func _ready() -> void:
 	yield(get_tree().create_timer(1.6), "timeout")
 	
 	yield(get_tree().create_timer(1.2), "timeout")
-	get_tree().change_scene("res://Level1.tscn")
+	GLOBAL.next_scene("playernode")

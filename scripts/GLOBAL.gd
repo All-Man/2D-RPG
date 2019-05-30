@@ -6,6 +6,7 @@ var file_path:String
 var level_index:int = 0
 var level_max:int = 10
 var scene_name:String = "boot"
+var map_name:String = "home"
 var dead_scene:PackedScene = preload("res://scenes/dead.tscn")
 var esc_scene:PackedScene = preload("res://scenes/esc.tscn")
 var scene_fade:Node
@@ -55,7 +56,7 @@ func restart_scene() -> void:
 
 func next_scene(scene:String = "", fade_out:float = 1, fade_in:float = .5) -> void:
 	scene_name = scene
-
+	print(scene)
 	scene_fade = scene_fade_out(fade_out)
 	yield(scene_fade, "tween_completed")
 
@@ -74,11 +75,11 @@ func next_scene(scene:String = "", fade_out:float = 1, fade_in:float = .5) -> vo
 		file_path = "res://scenes/"+scene+".tscn"
 		if file.file_exists(file_path):
 			get_tree().change_scene(file_path)
-
 	scene_fade = scene_fade_in(fade_in)
 	yield(scene_fade, "tween_completed")
 	$color.hide()
 	get_tree().paused = false
+
 
 func scene_fade_out(time:float) -> Node:
 	get_tree().paused = true

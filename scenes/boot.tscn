@@ -31,4 +31,3 @@ texture = ExtResource( 3 )
 [node name="fabenial" type="Sprite" parent="."]
 position = Vector2( 670, 450 )
 texture = ExtResource( 4 )
-

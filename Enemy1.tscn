@@ -103,4 +103,5 @@ shape = SubResource( 5 )
 [connection signal="area_entered" from="KinematicEnemy1/Body" to="KinematicEnemy1/Body" method="_on_Body_area_entered"]
 [connection signal="area_exited" from="KinematicEnemy1/Body" to="KinematicEnemy1/Body" method="_on_Body_area_exited"]
 [connection signal="area_entered" from="KinematicEnemy1/HitZone" to="KinematicEnemy1" method="_on_HitZone_area_entered"]
+[connection signal="area_exited" from="KinematicEnemy1/HitZone" to="KinematicEnemy1" method="_on_HitZone_area_exited"]
 [connection signal="area_entered" from="KinematicEnemy1/Area2D" to="KinematicEnemy1" method="_on_Area2D_area_entered"]

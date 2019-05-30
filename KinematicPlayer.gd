@@ -1,30 +1,29 @@
 extends KinematicBody2D
 
-const SPEED = 200 # Скорость передвижения игрока
+const SPEED:int = 200 # Скорость передвижения игрока
 
 var movedir = Vector2(0,0) # Текущее направляение движения
-var spritedir = "down" # Направление персонажа
-var can_go = true 
-var can_fire = false
+var spritedir:String = "down" # Направление персонажа
+var can_go:bool = true 
+var can_fire:bool = false
 var how_fire = Vector2()
 var fire_rotate = 0
-var time = 5
+var time:float = 5
 var shoot_time = 1
-var is_live = true
-var is_moving = false
+var is_live:bool = true
+var is_moving:bool = false
 
-var CurrentMap = "Home"
 
-var health = 40 # ХП
-var mana = 100 # Мана
+var health = 40 # ХП изначально
+var mana = 100 # Мана изначально
 
-var manaMAX = 100
-var healthMAX = 100
+var manaMAX:int = 100
+var healthMAX:int = 100
 
-var HealthRegenSpeed = 1 # Скорость регенерации маны
-var ManaRegenSpeed = 10 # Скорость регенерации маны
-var FireBallCost = 30 # Цена файрболла в мане
-var FireDamage = 5 # Урон персу от файрболла
+var HealthRegenSpeed:int = 1 # Скорость регенерации маны
+var ManaRegenSpeed:int = 10 # Скорость регенерации маны
+var FireBallCost:int = 30 # Цена файрболла в мане
+var FireDamage:int = 5 # Урон персу от файрболла
 
 var Bullet = preload('res://player/Bullet.tscn') # В переменную Bullet пдгружаем сцену Bullet.tscn
 
@@ -157,9 +156,9 @@ func anim_switch(animation): # Функция смены анимации, чт�
 	var newanim = str(animation, spritedir)
 	if $anim.current_animation != newanim:
 		$anim.play(newanim)
-func go_to_world(worldname): # Функция смены мира вызывается из ноды на уровень выше
-	$"../".change_map(worldname, CurrentMap, worldname)
-	CurrentMap = worldname
+func go_to_world(worldname): # Функция смены мира
+	$"../".change_map(worldname)
+	GLOBAL.scene_name = worldname
 func FireBallDamage():
 	health -= FireDamage
 func use_hint(what):

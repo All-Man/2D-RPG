@@ -1,8 +1,8 @@
 extends Area2D
 
 
-var SPEED = 250
-var time = 0 # Объявление переменных
+var SPEED:int = 250
+var time:float = 0 # Объявление переменных
 
 func boom():
 		# "$" - обращение к ноде

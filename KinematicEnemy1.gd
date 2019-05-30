@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-var IsPlayerNear = false
-var SPEED = 140
-var health = 150
+var IsPlayerNear:bool = false
+var SPEED:int = 140
+var health:int = 150
 var PlayerPos = Vector2(0,0)
+var CanHitPlayer:bool = false
+var BulletDamage:int = 10
 
 func _physics_process(delta):
 	$HealthBar.set_value(health)
@@ -14,8 +16,10 @@ func _physics_process(delta):
 		PlayerPos.y = $"../../../../KinematicPlayer".global_position.y - self.global_position.y
 		var motion = PlayerPos.normalized() * SPEED
 		move_and_slide(motion, Vector2(0,0))
-		
-		rotation_loop()
+		if(!CanHitPlayer):
+			rotation_loop()
+		else:
+			$AnimatedSprite.stop()
 
 
 
@@ -63,10 +67,15 @@ func stop_attack():
 func _on_HitZone_area_entered(area): # Функция будущей атаки, необходимо дописать
 	var groups = area.get_groups()
 	if (groups.has("player")):
-		print("EEEEBOYYY")
+		CanHitPlayer = true
 
 func _on_Area2D_area_entered(area):
 	var groups = area.get_groups()
-	print("AI")
 	if (groups.has("bullet")):
-		health -= 10
+		health -= BulletDamage
+
+
+func _on_HitZone_area_exited(area):
+	var groups = area.get_groups()
+	if (groups.has("player")):
+		CanHitPlayer = false

@@ -13,4 +13,3 @@ script = ExtResource( 1 )
 
 [node name="KinematicPlayer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 689.217, 356.237 )
-
